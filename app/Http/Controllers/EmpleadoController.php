@@ -48,14 +48,17 @@ class EmpleadoController extends Controller
         $campos=[
             'name'=>'required|string|max:100',
             'lastname'=>'required|string|max:100',
-            'number'=>'required|string|max:100',
+            'number'=>'required|string|max:12',
             'documentid'=>'required|string|max:10',
             'birth'=>'required|date|',
+            'email' => 'required|email|unique:users',
+
+
 
         ];
 
         $mensaje=[
-            'required' => ' Campo atribute requerido',
+            'required' => ' Campo :attribute requerido',
 
         ];
 
