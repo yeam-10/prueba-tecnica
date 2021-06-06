@@ -23,7 +23,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('city');
             $table->string('Photo');
             $table->string('number');
-            $table->integer('documentid');
+            $table->string('documentid');
             $table->string('email');
 
 
