@@ -43,7 +43,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Se agrega validaciones
 
         $campos=[
             'name'=>'required|string|max:100',
@@ -92,7 +92,7 @@ $datosEmpleado['Photo']=$request->file('Photo')->store('uploads', 'public');
      */
     public function edit($id)
     {
-        //
+        //Funcion que permite editar datos
         $empleado=Empleado::findOrFail($id);
         return view('empleado.edit', compact('empleado'));
     }
@@ -106,7 +106,7 @@ $datosEmpleado['Photo']=$request->file('Photo')->store('uploads', 'public');
      */
     public function update(Request $request, $id)
     {
-        //
+        //Actualiza empleados y redirecciona con mensaje exitoso
 
 
         $datosEmpleado = request()->except(['_token','_method','documentid','email']);
@@ -134,7 +134,7 @@ $datosEmpleado['Photo']=$request->file('Photo')->store('uploads', 'public');
      */
     public function destroy($id)
     {
-        //
+        //funcion que permite realizar el delete de un empleado
 
        $empleado=Empleado::findOrFail($id);
 

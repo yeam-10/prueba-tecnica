@@ -1,4 +1,4 @@
-
+<!--View que permite editar el usuario-->
 @extends('layouts.app')
 
 @section('content')

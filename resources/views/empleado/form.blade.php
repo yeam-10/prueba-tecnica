@@ -1,3 +1,5 @@
+
+<!--View que permite crear empleado -->
 <h1>{{$modo}} empleado</h1>
 
 
