@@ -52,6 +52,7 @@ class EmpleadoController extends Controller
             'documentid'=>'required|string|max:10',
             'birth'=>'required|date|',
             'email' => 'required|email|unique:users',
+            'passwd' => 'required|string|min:10|regex:/[a-z]/|regex:/[A-Z]/| regex:/[0-9]/|regex:/[@$!%*#?&]/',
 
 
 
