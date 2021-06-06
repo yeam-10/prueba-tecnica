@@ -17,7 +17,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         //
-        $datos['empleados']=Empleado::paginate(5);
+        $datos['empleados']=Empleado::paginate(1);
         return view('empleado.index',$datos);
 
 
@@ -44,6 +44,22 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+            'name'=>'required|string|max:100',
+            'lastname'=>'required|string|max:100',
+            'number'=>'required|string|max:100',
+            'documentid'=>'required|number|max:10',
+            'birth'=>'required|date|',
+
+        ];
+
+        $mensaje=[
+            'required' => ' Campo atribute requerido',
+
+        ];
+
+        $this->validate($request, $campos, $mensaje);
 
         $datosEmpleado = request()->except('_token');
 
@@ -92,7 +108,10 @@ $datosEmpleado['Photo']=$request->file('Photo')->store('uploads', 'public');
     {
         //
 
+
         $datosEmpleado = request()->except(['_token','_method','documentid','email']);
+
+
 
         if($request->hasFile('Photo')){
             $empleado=Empleado::findOrFail($id);
@@ -102,7 +121,9 @@ $datosEmpleado['Photo']=$request->file('Photo')->store('uploads', 'public');
         Empleado::where('id','=',$id)->update($datosEmpleado);
 
         $empleado=Empleado::findOrFail($id);
-        return view('empleado.edit', compact('empleado'));
+       // return view('empleado.edit', compact('empleado'));
+
+       return redirect('empleado')->with('mensaje','Empleado actualizado con exito');
     }
 
     /**
