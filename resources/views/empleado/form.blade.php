@@ -43,6 +43,8 @@
 <input type="text" name="city"   class="form-control" value="{{isset ($empleado->city)?$empleado->city:old('city') }}"" id="city" >
 </div>
 
+
+
 <div class="form-group">
 <label for="Foto"></label>
 @if(isset($empleado->Photo))

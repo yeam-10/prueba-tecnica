@@ -49,7 +49,7 @@ class EmpleadoController extends Controller
             'name'=>'required|string|max:100',
             'lastname'=>'required|string|max:100',
             'number'=>'required|string|max:100',
-            'documentid'=>'required|number|max:10',
+            'documentid'=>'required|string|max:10',
             'birth'=>'required|date|',
 
         ];
